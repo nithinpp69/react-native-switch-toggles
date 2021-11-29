@@ -45,8 +45,20 @@ const [isEnabled, setIsEnabled] = React.useState(false);
 ....
 
 <Switch
+  size={50}
   value={isEnabled}
   onChange={(value) => setIsEnabled(value)}
+  renderOffIndicator={() => <Text style={{ fontSize: 16, color: 'white' }}>🌚</Text>}
+  renderOnIndicator={() => <Text style={{ fontSize: 16, color: 'white' }}>🌝</Text>}
+/>
+
+<Switch
+  size={50}
+  value={isEnabled}
+  onChange={(value) => setIsEnabled(value)}
+  activeTrackColor={"#45D058"}
+  renderOffIndicator={() => <Text style={{ fontSize: 16, color: 'white' }}>OFF</Text>}
+  renderOnIndicator={() => <Text style={{ fontSize: 16, color: 'white' }}>ON</Text>}
 />
 
 ```
