@@ -10,21 +10,7 @@ import Animated, {
 } from "react-native-reanimated";
 import Colors from './colors';
 import styles from './styles';
-
-interface SwitchProps {
-  size?: number;
-  value: boolean;
-  disabled?: boolean;
-  onChange: (value: boolean) => void;
-  activeTrackColor?: string;
-  inactiveTrackColor?: string;
-  activeThumbColor?: string;
-  inactiveThumbColor?: string;
-  renderOnIndicator?: () => React.ReactNode;
-  renderOffIndicator?: () => React.ReactNode;
-  renderActiveThumbIcon?: () => React.ReactNode;
-  renderInactiveThumbIcon?: () => React.ReactNode;
-}
+import { SwitchProps } from './types';
 
 const Switch: React.FC<SwitchProps> = ({
   size = 25,
