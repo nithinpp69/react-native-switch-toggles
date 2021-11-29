@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native";
 import Animated, {
   interpolate,
   interpolateColor,
@@ -8,6 +8,8 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import Colors from './colors';
+import styles from './styles';
 
 interface SwitchProps {
   size?: number;
@@ -29,10 +31,10 @@ const Switch: React.FC<SwitchProps> = ({
   value,
   disabled = false,
   onChange,
-  activeTrackColor = "rgba(255,255,255,0.6)",
-  inactiveTrackColor = "rgba(0,0,0,0.2)",
-  activeThumbColor = "white",
-  inactiveThumbColor = "white",
+  activeTrackColor = Colors.activeTrackColor,
+  inactiveTrackColor = Colors.inactiveTrackColor,
+  activeThumbColor = Colors.white,
+  inactiveThumbColor = Colors.white,
   renderOnIndicator = () => null,
   renderOffIndicator = () => null,
   renderActiveThumbIcon = () => null,
@@ -202,61 +204,4 @@ const Switch: React.FC<SwitchProps> = ({
     </TouchableOpacity>
   );
 };
-
-const styles = (props) =>
-  StyleSheet.create({
-    switchContainer: {
-      opacity: props.disabled ? 0.6 : 1,
-    },
-    container: {
-      width: props.switchWidth,
-      height: props.switchHeight,
-      backgroundColor: "rgba(0,0,0,0.25)",
-      borderRadius: props.switchBorderRadius,
-      justifyContent: "center",
-      overflow: "hidden",
-    },
-    thumb: {
-      height: props.switchHeight - 10,
-      width: props.switchHeight - 10,
-      borderRadius: props.switchBorderRadius,
-      margin: 5,
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
-      overflow: "hidden",
-    },
-    onIndicator: {
-      width: "50%",
-      height: "100%",
-      backgroundColor: "transparent",
-      position: "absolute",
-      left: 0,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    offIndicator: {
-      width: "50%",
-      height: "100%",
-      backgroundColor: "transparent",
-      position: "absolute",
-      right: 0,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    thumbIconContainer: {
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  });
-
 export default Switch;

@@ -53,10 +53,20 @@ const [isEnabled, setIsEnabled] = React.useState(false);
 ![](demo.gif)
 
 ## Props
-| Prop                        | Description                                                                           | Type                          | Default Value              | Required |
-| :--------------------------:|:--------------------------------------------------------------------------------------|:-----------------------------:|:--------------------------:|:--------:|
-| value                       | switch state value                                                                    | Boolean                       |                            | true     |
-| onChange                    | Callback on switch value change                                                       | Function                      |  (value: boolean) => void; | true     |
+| Prop                        | Description                                                                           | Type                          | Default Value              | Required  |
+| :--------------------------:|:--------------------------------------------------------------------------------------|:-----------------------------:|:--------------------------:|:---------:|
+| size                        | size of the switch component                                                          | Number                        | 25                         | true      |
+| value                       | switch state value                                                                    | Boolean                       |                            | true      |
+| onChange                    | Callback on switch value change                                                       | Function                      |  (value: boolean) => void; | true      |
+| disabled                    | enable/disable switch                                                                 | Boolean                       |  false                     | false     |
+| activeTrackColor            | track color when switch value is true                                                 | String                        |  "rgba(255,255,255,0.6)" | false     |
+| inactiveTrackColor          | track color when switch value is false                                                | String                        |  "rgba(0,0,0,0.2)"       | false     |
+| activeThumbColor            | thumb color when switch value is true                                                 | String                        |  "#ffffff"               | false     |
+| inactiveThumbColor          | thumb color when switch value is false                                                | String                        |  "#ffffff"               | false     |
+| renderOnIndicator           | render a custom view on switch track when the switch value is true                    | Function                      |  () => null                | false     |
+| renderOffIndicator          | render a custom view on switch track when the switch value is false                   | Function                      |  () => null                | false     |
+| renderActiveThumbIcon       | render a custom view on switch thumb when the switch value is true                    | Function                      |  () => null                | false     |
+| renderInactiveThumbIcon     | render a custom view on switch thumb when the switch value is false                   | Function                      |  () => null                | false     |
 
 ## License
 This project is licenced under the MIT License.
