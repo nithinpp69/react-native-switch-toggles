@@ -12,6 +12,7 @@ A simple and customizable React Native switch component.
 ❤️ [Expo Snack](https://snack.expo.dev/@nithinpp69/react-native-switch-toggles)
 
 ![](demo.gif)
+![](demo2.gif)
 
 ## Prerequisites
 
@@ -63,6 +64,133 @@ const [isEnabled, setIsEnabled] = React.useState(false);
 
 ```
 ![](demo.gif)
+
+```
+import Switch from 'react-native-switch-toggles';
+
+
+const [isEnabled, setIsEnabled] = React.useState(false);
+....
+
+<>
+  <Text style={styles.label}>Simple Switch</Text>
+  <Switch
+    value={isEnabled}
+    onChange={(value) => setIsEnabled(value)}
+  />
+</>
+
+
+<>
+  <Text style={styles.label}>Switch with on/off indicator</Text>
+  <Switch
+    value={isEnabled}
+    onChange={(value) => setIsEnabled(value)}
+    activeTrackColor={'#45D058'}
+    renderOffIndicator={() => (
+      <Text style={{ fontSize: 8, color: 'white' }}>OFF</Text>
+    )}
+    renderOnIndicator={() => (
+      <Text style={{ fontSize: 8, color: 'white' }}>ON</Text>
+    )}
+  />
+</>
+
+
+<>
+  <Text style={styles.label}>Switch with on/off thumb indicator</Text>
+  <Switch
+    size={40}
+    value={isEnabled}
+    onChange={(value) => setIsEnabled(value)}
+    activeTrackColor={'#6ab04c'}
+    renderInactiveThumbIcon={() => (
+      <Text style={{ fontSize: 12, color: 'black' }}>💩</Text>
+    )}
+    renderActiveThumbIcon={() => (
+      <Text style={{ fontSize: 12, color: 'black' }}>🔥</Text>
+    )}
+  />
+</>
+
+
+<>
+  <Text style={styles.label}>
+    Switch with on/off thumb/track indicator
+  </Text>
+  <Switch
+    size={40}
+    value={isEnabled}
+    onChange={(value) => setIsEnabled(value)}
+    activeTrackColor={'#6ab04c'}
+    inactiveTrackColor={'#eb4d4b'}
+    renderInactiveThumbIcon={() => (
+      <Text style={{ fontSize: 12, color: 'black' }}>💩</Text>
+    )}
+    renderActiveThumbIcon={() => (
+      <Text style={{ fontSize: 12, color: 'black' }}>🔥</Text>
+    )}
+    renderOffIndicator={() => (
+      <Text style={{ fontSize: 12, color: 'white' }}>OFF</Text>
+    )}
+    renderOnIndicator={() => (
+      <Text style={{ fontSize: 12, color: 'white' }}>ON</Text>
+    )}
+  />
+</>
+
+
+<>
+  <Text style={styles.label}>Big switch</Text>
+  <Switch
+    size={60}
+    value={isEnabled}
+    onChange={(value) => setIsEnabled(value)}
+    activeTrackColor={'#4b7bec'}
+    inactiveTrackColor={'#ff7f50'}
+    renderInactiveThumbIcon={() => (
+      <Text style={{ fontSize: 16, color: 'black' }}>💩</Text>
+    )}
+    renderActiveThumbIcon={() => (
+      <Text style={{ fontSize: 16, color: 'black' }}>🔥</Text>
+    )}
+    renderOffIndicator={() => (
+      <Text style={{ fontSize: 12, color: 'white' }}>OFF</Text>
+    )}
+    renderOnIndicator={() => (
+      <Text style={{ fontSize: 12, color: 'white' }}>ON</Text>
+    )}
+  />
+</>
+
+
+<>
+  <Text style={styles.label}>Big switch with thumb color</Text>
+  <Switch
+    size={60}
+    value={isEnabled}
+    onChange={(value) => setIsEnabled(value)}
+    activeThumbColor={'#f9ca24'}
+    inactiveThumbColor={'#6ab04c'}
+    activeTrackColor={'#6ab04c'}
+    inactiveTrackColor={'#ffffff'}
+    renderInactiveThumbIcon={() => (
+      <Text style={{ fontSize: 14, color: 'black' }}>💩</Text>
+    )}
+    renderActiveThumbIcon={() => (
+      <Text style={{ fontSize: 14, color: 'black' }}>🔥</Text>
+    )}
+    renderOffIndicator={() => (
+      <Text style={{ fontSize: 12, color: 'black' }}>OFF</Text>
+    )}
+    renderOnIndicator={() => (
+      <Text style={{ fontSize: 12, color: 'white' }}>ON</Text>
+    )}
+  />
+</>
+
+```
+![](demo2.gif)
 
 ## Props
 | Prop                        | Description                                                                           | Type                          | Default Value              | Required  |
