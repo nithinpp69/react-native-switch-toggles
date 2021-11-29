@@ -43,7 +43,7 @@ const Switch: React.FC<SwitchProps> = ({
 
   useEffect(() => {
     setSwitchValue(value);
-  }, [value])
+  }, [value]);
 
   const switchWidth = useMemo(() => {
     return size * 1.8;
@@ -94,7 +94,7 @@ const Switch: React.FC<SwitchProps> = ({
     translateX.value = withTiming(toValue, undefined, () => {
       runOnJS(onChange)?.(switchValue);
     });
-  }, [switchValue])
+  }, [switchValue]);
 
   const onPress = () => {
     setSwitchValue(value => !value);
