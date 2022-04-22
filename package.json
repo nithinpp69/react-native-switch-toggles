@@ -1,6 +1,6 @@
 {
   "name": "react-native-switch-toggles",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "React Native customizable switch component",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
