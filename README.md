@@ -1,18 +1,18 @@
-# react-native-switch-toggles
+# React Native Switch Toggles 🔥
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
-![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS-brightgreen.svg?style=flat&colorB=191A17)
-[![Version](https://img.shields.io/npm/v/react-native-switch-toggles.svg)](https://www.npmjs.com/package/react-native-switch-toggles)
-[![npm](https://img.shields.io/npm/dt/react-native-switch-toggles.svg)](https://www.npmjs.com/package/react-native-switch-toggles)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](https://github.com/nithinpp69/react-native-switch-toggles/blob/main/LICENSE)
+![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS-brightgreen.svg?style=for-the-badge&colorB=191A17)
+[![Version](https://img.shields.io/npm/v/react-native-switch-toggles.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-switch-toggles)
+[![npm](https://img.shields.io/npm/dt/react-native-switch-toggles.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-switch-toggles)
 
 A simple and customizable React Native switch component. 
 
 ## Demo
 
-❤️ [Expo Snack](https://snack.expo.dev/@nithinpp69/react-native-switch-toggles)
+## ❤️ [Try on Expo Snack](https://snack.expo.dev/@nithinpp69/react-native-switch-toggles)
 
-![](demo.gif)
-![](demo2.gif)
+![](examples/demo.gif)
+![](examples/demo2.gif)
 
 ## Prerequisites
 
@@ -27,18 +27,18 @@ Follow [react-native-reanimated-v2](https://docs.swmansion.com/react-native-rean
 
  Supported version: react-native >= 0.59.0
 
-  ```
+  ```bash
   npm install react-native-switch-toggles
   ```
   
   or
   
-  ```
+  ```bash
   yarn add react-native-switch-toggles
   ```
   
 ## Example
-```
+```jsx
 import Switch from 'react-native-switch-toggles';
 
 
@@ -63,9 +63,9 @@ const [isEnabled, setIsEnabled] = React.useState(false);
 />
 
 ```
-![](demo.gif)
+![](examples/demo.gif)
 
-```
+```jsx
 import Switch from 'react-native-switch-toggles';
 
 
@@ -190,7 +190,7 @@ const [isEnabled, setIsEnabled] = React.useState(false);
 </>
 
 ```
-![](demo2.gif)
+![](examples/demo2.gif)
 
 ## Props
 | Prop                        | Description                                                                           | Type                          | Default Value              | Required  |

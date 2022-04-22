@@ -8,9 +8,9 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import Colors from './colors';
+import Colors from '../utils/colors';
 import styles from './styles';
-import { SwitchProps } from './types';
+import type { SwitchProps } from './types';
 
 const Switch: React.FC<SwitchProps> = ({
   size = 25,
@@ -26,8 +26,8 @@ const Switch: React.FC<SwitchProps> = ({
   renderActiveThumbIcon = () => null,
   renderInactiveThumbIcon = () => null,
 }) => {
-  const translateX = useSharedValue(0);
-  const [switchValue, setSwitchValue]  = useState(value);
+  const translateX: Animated.SharedValue<number> = useSharedValue(0);
+  const [switchValue, setSwitchValue]  = useState<boolean>(value);
 
   useEffect(() => {
     setSwitchValue(value);
@@ -85,7 +85,7 @@ const Switch: React.FC<SwitchProps> = ({
   }, [switchValue]);
 
   const onPress = () => {
-    setSwitchValue(value => !value);
+    setSwitchValue(_value => !_value);
   };
 
   const onIndicatorStyle = useAnimatedStyle(() => {
@@ -170,20 +170,20 @@ const Switch: React.FC<SwitchProps> = ({
           pointerEvents="none"
           style={[styles(styleProps).onIndicator, onIndicatorStyle]}
         >
-          {renderOnIndicator()}
+          {renderOnIndicator?.()}
         </Animated.View>
         <Animated.View
           pointerEvents="none"
           style={[styles(styleProps).offIndicator, offIndicatorStyle]}
         >
-          {renderOffIndicator()}
+          {renderOffIndicator?.()}
         </Animated.View>
         <Animated.View style={[styles(styleProps).thumb, thumbStyle]}>
           <Animated.View pointerEvents="none" style={[styles(styleProps).thumb,thumbActiveStyle]}>
             {renderActiveThumbIcon()}
           </Animated.View>
           <Animated.View pointerEvents="none" style={[styles(styleProps).thumb, thumbInactiveStyle]}>
-            {renderInactiveThumbIcon()}
+            {renderInactiveThumbIcon?.()}
           </Animated.View>
         </Animated.View>
       </Animated.View>
