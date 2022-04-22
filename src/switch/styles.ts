@@ -1,6 +1,13 @@
 import { StyleSheet } from 'react-native';
 
-const styles = (props) =>
+export type StyleProps = {
+  switchWidth: number;
+  switchHeight: number;
+  switchBorderRadius: number;
+  disabled: boolean;
+};
+
+const styles = (props: StyleProps) =>
   StyleSheet.create({
     switchContainer: {
       opacity: props.disabled ? 0.6 : 1,
