@@ -195,9 +195,9 @@ const [isEnabled, setIsEnabled] = React.useState(false);
 ## Props
 | Prop                        | Description                                                                           | Type                          | Default Value              | Required  |
 | :--------------------------:|:--------------------------------------------------------------------------------------|:-----------------------------:|:--------------------------:|:---------:|
-| size                        | size of the switch component                                                          | Number                        | 25                         | true      |
 | value                       | switch on/off state value                                                             | Boolean                       |                            | true      |
 | onChange                    | callback on switch value change                                                       | Function                      |  (value: boolean) => void; | true      |
+| size                        | size of the switch component                                                          | Number                        |  25                        | false     |
 | disabled                    | enable/disable switch                                                                 | Boolean                       |  false                     | false     |
 | activeTrackColor            | track color when switch value is true                                                 | String                        |  "rgba(255,255,255,0.6)" | false     |
 | inactiveTrackColor          | track color when switch value is false                                                | String                        |  "rgba(0,0,0,0.2)"       | false     |

@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { TouchableOpacity } from "react-native";
+import React, {useEffect, useMemo, useState} from 'react';
+import {TouchableOpacity} from 'react-native';
 import Animated, {
   interpolate,
   interpolateColor,
@@ -7,10 +7,12 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
+
 import Colors from '../utils/colors';
+import type {SwitchProps} from '../types';
+
 import styles from './styles';
-import type { SwitchProps } from './types';
 
 const Switch: React.FC<SwitchProps> = ({
   size = 25,
@@ -27,7 +29,7 @@ const Switch: React.FC<SwitchProps> = ({
   renderInactiveThumbIcon = () => null,
 }) => {
   const translateX: Animated.SharedValue<number> = useSharedValue(0);
-  const [switchValue, setSwitchValue]  = useState<boolean>(value);
+  const [switchValue, setSwitchValue] = useState(value);
 
   useEffect(() => {
     setSwitchValue(value);
@@ -62,7 +64,7 @@ const Switch: React.FC<SwitchProps> = ({
     );
     return {
       backgroundColor: thumbColor,
-      transform: [{ translateX: translateX.value }],
+      transform: [{translateX: translateX.value}],
     };
   });
 
@@ -82,7 +84,8 @@ const Switch: React.FC<SwitchProps> = ({
     translateX.value = withTiming(toValue, undefined, () => {
       runOnJS(onChange)?.(switchValue);
     });
-  }, [switchValue]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [switchValue, translateX, xTranslationValue]);
 
   const onPress = () => {
     setSwitchValue(_value => !_value);
@@ -102,7 +105,7 @@ const Switch: React.FC<SwitchProps> = ({
     const scale = interpolate(translateX.value, [0, xTranslationValue], [0, 1]);
     return {
       opacity,
-      transform: [{ translateY }, { scale }],
+      transform: [{translateY}, {scale}],
     };
   });
 
@@ -120,7 +123,7 @@ const Switch: React.FC<SwitchProps> = ({
     const scale = interpolate(translateX.value, [0, xTranslationValue], [1, 0]);
     return {
       opacity,
-      transform: [{ translateY }, { scale }],
+      transform: [{translateY}, {scale}],
     };
   });
 
@@ -133,11 +136,17 @@ const Switch: React.FC<SwitchProps> = ({
     const translate = interpolate(
       translateX.value,
       [0, xTranslationValue],
-      [0, size/2]
+      [0, size / 2]
+    );
+    const thumbColor = interpolateColor(
+      translateX.value,
+      [0, xTranslationValue],
+      [inactiveThumbColor, activeThumbColor]
     );
     return {
+      backgroundColor: thumbColor,
       opacity,
-      transform: [ { translateX: translate }],
+      transform: [{translateX: translate}],
     };
   });
 
@@ -152,37 +161,45 @@ const Switch: React.FC<SwitchProps> = ({
       [0, xTranslationValue],
       [-size / 2, 0]
     );
+    const thumbColor = interpolateColor(
+      translateX.value,
+      [0, xTranslationValue],
+      [inactiveThumbColor, activeThumbColor]
+    );
     return {
+      backgroundColor: thumbColor,
       opacity,
-      transform: [ { translateX: translate }],
+      transform: [{translateX: translate}],
     };
   });
 
   return (
     <TouchableOpacity
+      testID="switch-button"
       activeOpacity={1}
       onPress={onPress}
       disabled={disabled}
-      style={styles(styleProps).switchContainer}
-    >
+      style={styles(styleProps).switchContainer}>
       <Animated.View style={[styles(styleProps).container, trackStyle]}>
         <Animated.View
           pointerEvents="none"
-          style={[styles(styleProps).onIndicator, onIndicatorStyle]}
-        >
+          style={[styles(styleProps).onIndicator, onIndicatorStyle]}>
           {renderOnIndicator?.()}
         </Animated.View>
         <Animated.View
           pointerEvents="none"
-          style={[styles(styleProps).offIndicator, offIndicatorStyle]}
-        >
+          style={[styles(styleProps).offIndicator, offIndicatorStyle]}>
           {renderOffIndicator?.()}
         </Animated.View>
         <Animated.View style={[styles(styleProps).thumb, thumbStyle]}>
-          <Animated.View pointerEvents="none" style={[styles(styleProps).thumb,thumbActiveStyle]}>
+          <Animated.View
+            pointerEvents="none"
+            style={[styles(styleProps).thumb, thumbActiveStyle]}>
             {renderActiveThumbIcon()}
           </Animated.View>
-          <Animated.View pointerEvents="none" style={[styles(styleProps).thumb, thumbInactiveStyle]}>
+          <Animated.View
+            pointerEvents="none"
+            style={[styles(styleProps).thumb, thumbInactiveStyle]}>
             {renderInactiveThumbIcon?.()}
           </Animated.View>
         </Animated.View>
