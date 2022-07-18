@@ -1,10 +1,12 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
+
+import Colors from '../utils/colors';
 
 export type StyleProps = {
-  switchWidth: number;
-  switchHeight: number;
-  switchBorderRadius: number;
-  disabled: boolean;
+  switchWidth: number,
+  switchHeight: number,
+  switchBorderRadius: number,
+  disabled: boolean,
 };
 
 const styles = (props: StyleProps) =>
@@ -25,6 +27,7 @@ const styles = (props: StyleProps) =>
       width: props.switchHeight - 10,
       borderRadius: props.switchBorderRadius,
       margin: 5,
+      backgroundColor: Colors.white,
       shadowColor: '#000',
       shadowOffset: {
         width: 0,
